@@ -9,3 +9,4 @@ fib_c_opt.o : CXXFLAGS=-O
 
 clean:
 	rm ${PROGS} *.o -f
+

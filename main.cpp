@@ -1,11 +1,11 @@
+#include <cassert>
 #include <cstdint>
 #include <cstdlib>
 #include <chrono>
 #include <iostream>
 #include "fib.h"
 
-void run() {
-  int n = 4000;
+void run(int n, int iters) {
   int64_t *a = new int64_t[n];
   int64_t *b = new int64_t[n];
   int64_t *dest = new int64_t[n];
@@ -16,17 +16,20 @@ void run() {
   }
 
   auto start = std::chrono::high_resolution_clock::now();
-  for (int i=0; i < 100000; i++) {
+  for (int i=0; i < iters; i++) {
     fib(n, a, b, dest);
   }
   auto end = std::chrono::high_resolution_clock::now();
+  assert(dest[0] == std::min(a[0], b[0]));
   std::chrono::duration<double> diff = end - start;
-  std::cout << diff.count() << "\n";
+  std::cout << (diff.count() / iters) << "\n";
 }
 
-int main() {
+int main(int argc, char** argv) {
+  int size = std::stoi(argv[1]);
+  int iters = std::stoi(argv[1]);
   for (int i=0; i < 10; i++){
-    run();
+    run(size, iters);
   }
   return 0;
 }
