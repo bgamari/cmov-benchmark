@@ -16,7 +16,7 @@ void run() {
   }
 
   auto start = std::chrono::high_resolution_clock::now();
-  for (int i=0; i < 1000000; i++) {
+  for (int i=0; i < 100000; i++) {
     fib(n, a, b, dest);
   }
   auto end = std::chrono::high_resolution_clock::now();
