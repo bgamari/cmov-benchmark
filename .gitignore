@@ -1,4 +1,5 @@
 *.o
 test_c
+test_c_opt
 test_cmov
 test_jump
