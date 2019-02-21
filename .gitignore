@@ -1,0 +1,4 @@
+*.o
+test_c
+test_cmov
+test_jump
