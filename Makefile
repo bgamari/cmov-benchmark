@@ -1,4 +1,4 @@
-PROGS=test_c test_c_opt test_cmov test_jump
+PROGS=test_c test_c_opt test_cmov test_jump test_jump2
 
 all: ${PROGS}
 
